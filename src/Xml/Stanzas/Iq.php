@@ -94,4 +94,9 @@ class Iq extends Stanza
 
         $this->socket->send($xml);
     }
+
+    public function setVCard($vCardXML){
+        $xml = "<iq type='set' id='{$this->uniqueId()}'><vCard xmlns='vcard-temp'>{$vCardXML}</vCard></iq>";
+        $this->socket->send($xml);
+    }
 }
